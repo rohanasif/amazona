@@ -1,35 +1,36 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Rating from "./Rating";
-const Product = ({ product }) => {
-  // console.log(props);
+import { Link } from "react-router-dom";
+
+function Product({ products }) {
+  console.log(products, "get products data");
   return (
-    <div>
-      <Card className="my-3 p-3 rounded">
-        <a href={`/product/${product._id}`}>
-          <Card.Img src={product.image} varient="top" />
-        </a>
+    <>
+      <Card className="my-3 p-3 rounded ">
+        <Link to={`/product/${products._id}`}>
+          <Card.Img src={products.image} variant="top" />
+        </Link>
+
         <Card.Body>
-          <a href={`/product/${product._id}`}>
-            <Card.Title as="div">
-              <strong>{product.name}</strong>
+          <Link to={`/product/${products._id}`}>
+            <Card.Title>
+              <strong>{products.name}</strong>
             </Card.Title>
-          </a>
+          </Link>
 
           <Card.Text as="div">
             <div className="my-3">
-              <Rating
-                value={product.rating}
-                text={`${product.numReviews} reviews `}
-              />
+              {/* {product.rating} from {product.numReviews} reviews */}
+              <Rating rating={products.rating} views={products.numReviews} />
             </div>
           </Card.Text>
 
-          <Card.Text as="h3">${product.price}</Card.Text>
+          <Card.Text as="h3">${products.price}</Card.Text>
         </Card.Body>
       </Card>
-    </div>
+    </>
   );
-};
+}
 
 export default Product;
