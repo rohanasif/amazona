@@ -23,7 +23,7 @@ const reviewSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const productSchema = mongooose.Schema(
+const productSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
