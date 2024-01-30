@@ -73,7 +73,7 @@ const products = [
     brand: "Amazon",
     category: "Electronics",
     price: 29.99,
-    countInStock: 0,
+    countInStock: 2,
     rating: 1,
     numReviews: 0,
   },

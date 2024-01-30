@@ -6,7 +6,7 @@ function Header() {
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
-        <Container className="container">
+        <Container className="container border">
           <LinkContainer to="/">
             <Nav.Link to="/">
               <Navbar.Brand className="text-white">
@@ -23,9 +23,9 @@ function Header() {
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to="/login">
-                <Nav.Link>
-                  <i className="fas fa-user"></i>SignIn
-                </Nav.Link>
+                  <Nav.Link>
+                    <i className="fas fa-user"></i>SignIn
+                  </Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
