@@ -47,7 +47,7 @@ function ProductsScreen() {
   const {loading , error , product} = productDetail
 
   return (
-    <div>
+    <div className="py-5">
       <>
         <Link to="/" className="btn btn-light my-3">
           Go Back

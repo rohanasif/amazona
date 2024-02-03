@@ -35,10 +35,10 @@ function CartScreen() {
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
+    navigate("/login?redirect=/shipping");
   };
   return (
-    <>
+    <div className="py-5">
     <Row>
       <Col md={8}>
         <h1>Shopping Cart</h1>
@@ -117,7 +117,7 @@ function CartScreen() {
         </Card>
       </Col>
     </Row >
-      </>
+      </div>
   )
 }
 export default CartScreen;

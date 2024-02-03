@@ -1,18 +1,17 @@
-import mongoose, { mongo } from "mongoose";
-
+import mongoose from "mongoose";
 const orderSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User,",
+      ref: "User",
     },
     orderItems: [
       {
-        name: { type: String, requiered: true },
+        name: { type: String, required: true },
         qty: { type: Number, required: true },
         image: { type: String, required: true },
-        price: { type: Number, requiered: true },
+        price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -21,15 +20,12 @@ const orderSchema = mongoose.Schema(
       },
     ],
     shippingAddress: {
-      address: { type: String, requiered: true },
-      city: { type: String, requiered: true },
-      postalCode: { type: String, requiered: true },
-      country: { type: String, requiered: true },
+      address: { type: String, required: true },
+      city: { type: String, required: true },
+      postalCode: { type: String, required: true },
+      country: { type: String, required: true },
     },
-    paymentMethod: {
-      type: String,
-      requiered: true,
-    },
+    paymentMethod: { type: String, required: true },
     paymentResult: {
       id: { type: String },
       status: { type: String },
@@ -43,17 +39,17 @@ const orderSchema = mongoose.Schema(
     },
     shippingPrice: {
       type: Number,
-      requiered: true,
+      required: true,
       default: 0.0,
     },
     totalPrice: {
       type: Number,
-      requiered: true,
+      required: true,
       default: 0.0,
     },
     isPaid: {
       type: Boolean,
-      requiered: true,
+      required: true,
       default: false,
     },
     paidAt: {
@@ -61,14 +57,16 @@ const orderSchema = mongoose.Schema(
     },
     isDelivered: {
       type: Boolean,
-      requiered: true,
+      required: true,
       default: false,
     },
-    deliverdAt: {
+    deliveredAt: {
       type: Date,
     },
   },
-  { timestamp: true }
+  {
+    timestamps: true,
+  }
 );
 const Order = mongoose.model("Order", orderSchema);
 export default Order;

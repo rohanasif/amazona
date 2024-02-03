@@ -1,29 +1,47 @@
 import express from "express";
+import products from "./data/products.js";
 import dotenv from "dotenv";
-import dbConnection from "./congiguration/dbConnect.js";
+import connectDB from "./config/db.js";
 import colors from "colors";
-import productRoutes from "./Routes/productRoutes.js";
+import productsRoutes from "./routes/productRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-console.log(colors, "heloo coors");
+import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/OrderRoutes.js";
 
 const app = express();
-
 app.use(express.json());
 dotenv.config();
-dbConnection();
-app.use("/api/products", productRoutes);
+connectDB();
 
 app.get("/", (req, res) => {
-  res.json("API is running");
+  res.send("api is running");
 });
 
-const PORT = process.env.PORT || 8002;
+app.get("/api/config/paypal", (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID);
+});
 
+app.use("/api/products", productsRoutes);
+app.use("/api/users", userRoutes)
+app.use("/api/orders", orderRoutes)
+
+
+// app.use("/api/profile", userRoutes);
+
+// app.get('/api/products', (req, res) => {
+//     res.send(products)
+// })
+
+// app.get('/api/products/:id', (req, res) => {
+//     const product = products.find(p => p._id == req.params.id)
+//     res.json(product)
+// })
 app.use(notFound);
 app.use(errorHandler);
+const port = process.env.PORT;
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log(
-    `server is running on ${process.env.MODE} mode on port ${PORT}.rainbow.bold`
+    `Server is running in ${process.env.MODE} mode on port ${port}`.yellow.bold
   );
 });

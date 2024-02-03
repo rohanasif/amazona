@@ -1,16 +1,14 @@
-import React from 'react'
-import { Alert } from 'react-bootstrap'
-function Message({ varient, children }) {
-    return (
-        <div>
-            <Alert varient={varient}>
-                {children}
-            </Alert>
-        </div>
-    )
+import React from "react";
+import { Alert } from "react-bootstrap";
+function Message({ variant, children }) {
+  return (
+    <div>
+      <Alert variant={variant}>{children}</Alert>
+    </div>
+  );
 }
-    Message.defaultProps = {
-        varient:"info"
-    }
+Message.defaultProps = {
+  variant: "info",
+};
 
-export default Message
+export default Message;
