@@ -1,8 +1,9 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { Nav } from 'react-bootstrap';
 import { LinkContainer } from "react-router-bootstrap";
 
-function CheckoutSteps({ step1, step2, step3, step4 }) {
+
+function CheckoutSteps({step1,step2,step3,step4}) {
   return (
     <div>
       <Nav className="justify-content-center mb-4">
@@ -47,4 +48,4 @@ function CheckoutSteps({ step1, step2, step3, step4 }) {
   );
 }
 
-export default CheckoutSteps;
+export default CheckoutSteps

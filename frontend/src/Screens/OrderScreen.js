@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { PayPalButton } from "react-paypal-button-v2";
 import { ORDER_PAY_RESET } from "../constants/OrderContants";
-import { Row, Col, ListGroup, Image, Card } from "react-bootstrap";
+import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import { payOrder } from "../action/orderAction";
@@ -50,7 +50,7 @@ function OrderScreen() {
     }
   }, [dispatch, orderId, successPay, order]);
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult, "dedddddddddddddd");
+    console.log(paymentResult,"dedddddddddddddd");
     dispatch(payOrder(orderId, paymentResult));
   };
   return loading ? (
