@@ -1,18 +1,20 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React from 'react'
+import { Row, Col } from "react-bootstrap"
 import Product from "../Components/Product";
-import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../action/productAction";
-import Message from "../Components/Message";
-import Loader from "../Components/Loader";
+import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../action/productAction';
+import Message from '../Components/Message';
+import Loader from '../Components/Loader';
 function HomeScreen() {
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
   React.useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
-
+    dispatch(listProducts())
+  }, [dispatch])
+  
   return (
     <>
       <h1 className="py-5">Latest Products</h1>
@@ -30,6 +32,8 @@ function HomeScreen() {
         </Row>
       )}
     </>
-  );
+  )
 }
-export default HomeScreen;
+export default HomeScreen
+
+

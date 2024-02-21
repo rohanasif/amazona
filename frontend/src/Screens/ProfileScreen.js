@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../Components/Message";
 import Loader from "../Components/Loader";
 import { getUserDeatils, updateUserProfile } from "../action/userAction";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { listMyOrders } from "../action/orderAction";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -15,6 +15,7 @@ const ProfileScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
   const dispatch = useDispatch();
+  const location = useLocation();
   const navigate = useNavigate();
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
